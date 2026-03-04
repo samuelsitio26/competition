@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 48 10% 99%;
+    --foreground: 0 0% 17%;
+    --primary: 90 12% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 18 60% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 170 40% 60%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 0 0% 48%;
+    --muted-foreground: 0 0% 29%;
+    --card: 48 10% 99%;
+    --card-foreground: 0 0% 17%;
+    --border: 90 8% 90%;
+    --input: 48 10% 99%;
+    --ring: 90 12% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 210 14% 10%;
+    --foreground: 0 0% 98%;
+    --primary: 90 12% 53%;
+    --primary-foreground: 210 14% 10%;
+    --secondary: 18 60% 65%;
+    --secondary-foreground: 210 14% 10%;
+    --accent: 170 40% 60%;
+    --accent-foreground: 210 14% 10%;
+    --muted: 210 11% 63%;
+    --muted-foreground: 210 14% 84%;
+    --card: 210 13% 18%;
+    --card-foreground: 0 0% 98%;
+    --border: 210 13% 25%; /* Adjusted to valid HSL for 10% white equivalent */
+    --input: 210 13% 18%;
+    --ring: 90 12% 53%;
+  }
+
+  html {
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-heading text-[48px] md:text-[56px] font-bold tracking-[-0.5px] leading-tight text-foreground;
+  }
+  .heading-2 {
+    @apply font-heading text-[36px] md:text-[42px] font-semibold tracking-[-0.3px] leading-tight text-foreground;
+  }
+  .heading-3 {
+    @apply font-heading text-[24px] md:text-[28px] font-medium tracking-normal leading-snug text-foreground;
+  }
+  .body-text {
+    @apply font-sans text-[16px] font-normal tracking-normal leading-[1.6] text-muted-foreground;
+  }
+
+  /* Soft-Futuristic Utilities */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-lg rounded-[32px] transition-colors duration-300;
+  }
+  
+  .gradient-btn {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground hover:brightness-110 transition-all duration-300 shadow-md hover:shadow-lg border-0;
+  }
+
+  .nav-link {
+    @apply relative font-heading font-medium text-foreground/80 hover:text-primary transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary transition-all duration-300 ease-out;
+  }
+  
+  .nav-link:hover::after, .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-primary;
+  }
+}
+
+body {
+  @apply font-sans bg-background text-foreground overflow-x-clip transition-colors duration-300;
+}
+
+* {
+  scroll-behavior: smooth;
+}
