@@ -22,6 +22,9 @@
     --input: 48 10% 99%;
     --ring: 90 12% 53%;
     --radius: 0.5rem;
+    --hero-start: 38 50% 95%;
+    --hero-mid: 168 38% 93%;
+    --hero-end: 24 72% 90%;
   }
 
   .dark {
@@ -40,6 +43,9 @@
     --border: 210 13% 25%; /* Adjusted to valid HSL for 10% white equivalent */
     --input: 210 13% 18%;
     --ring: 90 12% 53%;
+    --hero-start: 210 14% 16%;
+    --hero-mid: 188 28% 18%;
+    --hero-end: 14 25% 20%;
   }
 
   html {
@@ -68,6 +74,29 @@
   
   .gradient-btn {
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground hover:brightness-110 transition-all duration-300 shadow-md hover:shadow-lg border-0;
+  }
+
+  .hero-mesh {
+    background-image:
+      radial-gradient(circle at 12% 16%, hsla(var(--primary), 0.22), transparent 34%),
+      radial-gradient(circle at 82% 22%, hsla(var(--accent), 0.2), transparent 30%),
+      radial-gradient(circle at 48% 84%, hsla(var(--secondary), 0.18), transparent 30%),
+      linear-gradient(135deg, hsl(var(--hero-start)) 0%, hsl(var(--hero-mid)) 48%, hsl(var(--hero-end)) 100%);
+  }
+
+  .grid-noise {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.32) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.32) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .section-shell {
+    @apply rounded-[32px] border border-border/50 bg-card/80 backdrop-blur-md shadow-lg;
+  }
+
+  .stat-card {
+    @apply rounded-3xl border border-border/60 bg-background/80 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
   }
 
   .nav-link {

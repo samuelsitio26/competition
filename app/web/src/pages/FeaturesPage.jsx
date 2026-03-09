@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
+import { HeartPulse, Brain, ShieldAlert, PhoneCall } from 'lucide-react';
 import MoodTracker from '@/components/MoodTracker.jsx';
 import SelfAssessment from '@/components/SelfAssessment.jsx';
 
@@ -16,6 +17,9 @@ const FeaturesPage = () => {
       </Helmet>
 
       <main className="min-h-screen py-20 md:py-32 relative bg-background">
+        <div className="fixed inset-0 -z-10 hero-mesh" />
+        <div className="fixed inset-0 -z-10 grid-noise opacity-50" />
+
         {/* Floating Background Shapes */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-[20%] right-[5%] w-[250px] h-[250px] rounded-full bg-secondary/10 dark:bg-secondary/5 blur-3xl animate-float" />
@@ -31,6 +35,10 @@ const FeaturesPage = () => {
           >
             {/* Header */}
             <div className="text-center space-y-6 max-w-3xl mx-auto glass-card p-10">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-foreground">
+                <HeartPulse className="h-4 w-4 text-primary" />
+                Interactive Wellness Suite
+              </div>
               <h1 className="heading-1">
                 Wellness Tools
               </h1>
@@ -43,7 +51,10 @@ const FeaturesPage = () => {
             <div className="max-w-5xl mx-auto space-y-16">
               <div className="space-y-6">
                 <div className="space-y-3 text-center md:text-left px-4">
-                  <h2 className="heading-2">Track Your Daily Mood</h2>
+                  <h2 className="heading-2 flex items-center gap-3 justify-center md:justify-start">
+                    <HeartPulse className="h-7 w-7 text-primary" />
+                    Track Your Daily Mood
+                  </h2>
                   <p className="body-text max-w-2xl">
                     Understanding your emotional patterns is the first step toward better mental wellness. 
                     Log how you're feeling each day and identify trends over time.
@@ -54,7 +65,10 @@ const FeaturesPage = () => {
 
               <div className="space-y-6">
                 <div className="space-y-3 text-center md:text-left px-4">
-                  <h2 className="heading-2">Mental Wellness Assessment</h2>
+                  <h2 className="heading-2 flex items-center gap-3 justify-center md:justify-start">
+                    <Brain className="h-7 w-7 text-secondary" />
+                    Mental Wellness Assessment
+                  </h2>
                   <p className="body-text max-w-2xl">
                     Gain insights into your current mental health status with our guided educational tool.
                   </p>
@@ -83,14 +97,17 @@ const FeaturesPage = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
                   <div className="p-6 rounded-[24px] bg-background/50 border border-border/50 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
-                    <p className="heading-3 mb-2 text-lg">National Crisis Hotline</p>
-                    <p className="body-text">Call or text 988<br/><span className="text-sm">(available 24/7)</span></p>
+                    <ShieldAlert className="h-5 w-5 text-primary mb-3" />
+                    <p className="heading-3 mb-2 text-lg">Layanan Darurat</p>
+                    <p className="body-text">Hubungi layanan gawat darurat lokal<br/><span className="text-sm">(24/7)</span></p>
                   </div>
                   <div className="p-6 rounded-[24px] bg-background/50 border border-border/50 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
-                    <p className="heading-3 mb-2 text-lg">Crisis Text Line</p>
-                    <p className="body-text">Text "HELLO" to 741741<br/><span className="text-sm">(available 24/7)</span></p>
+                    <PhoneCall className="h-5 w-5 text-primary mb-3" />
+                    <p className="heading-3 mb-2 text-lg">Hotline Konseling</p>
+                    <p className="body-text">Simpan nomor hotline kampus/daerah<br/><span className="text-sm">(24/7 jika tersedia)</span></p>
                   </div>
                   <div className="p-6 rounded-[24px] bg-background/50 border border-border/50 shadow-sm hover:shadow-md transition-shadow backdrop-blur-sm">
+                    <Brain className="h-5 w-5 text-primary mb-3" />
                     <p className="heading-3 mb-2 text-lg">Campus Counseling</p>
                     <p className="body-text">Contact your school's counseling center</p>
                   </div>

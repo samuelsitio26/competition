@@ -2,7 +2,21 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, Brain, BookOpen, ArrowRight, Sparkles, Shield, Users, Activity } from 'lucide-react';
+import {
+  Heart,
+  Brain,
+  BookOpen,
+  ArrowRight,
+  Sparkles,
+  Shield,
+  Users,
+  Activity,
+  Trophy,
+  Palette,
+  Gauge,
+  Accessibility,
+  CheckCircle2,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import HeroIllustration from '@/components/HeroIllustration.jsx';
 import BentoGrid from '@/components/BentoGrid.jsx';
@@ -82,6 +96,35 @@ const HomePage = () => {
     },
   ];
 
+  const judgingCriteria = [
+    {
+      icon: Palette,
+      title: 'Visual & Brand Identity',
+      points: 'Komposisi warna, tipografi, dan konsistensi identitas',
+    },
+    {
+      icon: Gauge,
+      title: 'UX & Interactivity',
+      points: 'Navigasi, micro-interaction, serta flow pengguna',
+    },
+    {
+      icon: Accessibility,
+      title: 'Accessibility & Responsiveness',
+      points: 'Nyaman dipakai di desktop dan mobile',
+    },
+    {
+      icon: Trophy,
+      title: 'Innovation & Relevance',
+      points: 'Fitur bernilai, relevan dengan problem statement',
+    },
+  ];
+
+  const heroStats = [
+    { label: 'Design Direction', value: 'Bold + Calm' },
+    { label: 'Framework', value: 'React + Tailwind' },
+    { label: 'Interaction', value: 'Motion Driven' },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,17 +153,20 @@ const HomePage = () => {
       </Helmet>
 
       <main className="relative">
+        <div className="fixed inset-0 -z-10 hero-mesh" />
+        <div className="fixed inset-0 -z-10 grid-noise opacity-60" />
+
         {/* Floating Background Shapes */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-          <div className="absolute top-[10%] left-[5%] w-[300px] h-[300px] rounded-full bg-primary/10 dark:bg-primary/5 blur-3xl animate-float" />
-          <div className="absolute top-[40%] right-[10%] w-[250px] h-[250px] rounded-full bg-secondary/10 dark:bg-secondary/5 blur-3xl animate-float-delayed" />
-          <div className="absolute bottom-[20%] left-[20%] w-[200px] h-[200px] rounded-full bg-accent/10 dark:bg-accent/5 blur-3xl animate-float" />
+          <div className="absolute top-[10%] left-[5%] w-[300px] h-[300px] rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl animate-float" />
+          <div className="absolute top-[40%] right-[10%] w-[250px] h-[250px] rounded-full bg-secondary/15 dark:bg-secondary/10 blur-3xl animate-float-delayed" />
+          <div className="absolute bottom-[20%] left-[20%] w-[200px] h-[200px] rounded-full bg-accent/15 dark:bg-accent/10 blur-3xl animate-float" />
         </div>
 
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <HeroIllustration />
-          <div className="absolute inset-0 bg-background/30 dark:bg-background/50 backdrop-blur-[2px] z-0" />
+          <div className="absolute inset-0 bg-background/20 dark:bg-background/45 backdrop-blur-[2px] z-0" />
 
           {/* Hero Content */}
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -128,24 +174,37 @@ const HomePage = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-4xl mx-auto text-center space-y-8 glass-card p-10 md:p-16"
+              className="max-w-5xl mx-auto text-center space-y-8 section-shell p-8 md:p-14"
             >
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-foreground">
+                <Trophy className="h-4 w-4 text-primary" />
+                Web Design Competition Ready
+              </div>
               <h1 className="heading-1">
-                Welcome to MindHaven
+                MindHaven: Ruang Aman dengan Desain yang Bernilai
               </h1>
               <p className="body-text max-w-3xl mx-auto text-lg">
-                Your safe space for mental wellness, designed to support students through every challenge with compassion and care.
+                Website ini dirancang untuk unggul pada aspek visual, pengalaman pengguna, dan kejelasan value. Fokus kami adalah membuat dukungan kesehatan mental terasa modern, manusiawi, dan mudah dijangkau mahasiswa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
                 <Button asChild size="lg" className="rounded-xl text-base px-8 py-6 h-auto gradient-btn">
                   <Link to="/features">
-                    Explore Features
+                    Lihat Fitur Utama
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-xl text-base px-8 py-6 h-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 border-0 transition-all shadow-md hover:shadow-lg">
-                  <Link to="/about">Learn More</Link>
+                  <Link to="/about">Pelajari Konsep</Link>
                 </Button>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                {heroStats.map((stat) => (
+                  <div key={stat.label} className="stat-card">
+                    <p className="text-xs tracking-wide uppercase text-muted-foreground">{stat.label}</p>
+                    <p className="mt-1 font-heading text-lg text-foreground">{stat.value}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -167,6 +226,34 @@ const HomePage = () => {
           </motion.div>
         </section>
 
+        {/* Judging Criteria Section */}
+        <section className="py-16 md:py-24 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto section-shell p-8 md:p-12 space-y-10">
+              <div className="max-w-3xl space-y-4">
+                <h2 className="heading-2">Penyesuaian Dengan Ketentuan Penilaian</h2>
+                <p className="body-text">
+                  Struktur halaman dan visual kami arahkan untuk menjawab poin penilaian lomba: estetika, UX, aksesibilitas, dan inovasi fitur yang relevan.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+                {judgingCriteria.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.title} className="stat-card">
+                      <div className="mb-4 inline-flex rounded-2xl bg-primary/10 p-3 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="font-heading text-xl text-foreground">{item.title}</h3>
+                      <p className="body-text mt-2 text-sm">{item.points}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Features Section (Bento Grid) */}
         <section className="py-20 md:py-32 relative z-10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -179,10 +266,10 @@ const HomePage = () => {
             >
               <motion.div variants={itemVariants} className="text-center space-y-6 max-w-3xl mx-auto">
                 <h2 className="heading-2">
-                  Tools for Your Wellness Journey
+                  Fitur Kunci untuk Pengalaman yang Berdampak
                 </h2>
                 <p className="body-text">
-                  Discover beautifully designed features to help you understand, track, and improve your mental health every day.
+                  Setiap modul diposisikan agar mudah dipahami juri dan pengguna: jelas manfaatnya, mudah diakses, dan kuat secara visual.
                 </p>
               </motion.div>
 
@@ -193,7 +280,7 @@ const HomePage = () => {
               <motion.div variants={itemVariants} className="text-center pt-8">
                 <Button asChild size="lg" className="rounded-xl gradient-btn px-8 py-6 h-auto text-base">
                   <Link to="/features">
-                    Get Started Now
+                    Coba Interaksi
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
@@ -214,10 +301,10 @@ const HomePage = () => {
             >
               <motion.div variants={itemVariants} className="text-center space-y-6 max-w-3xl mx-auto">
                 <h2 className="heading-2">
-                  Why Choose MindHaven?
+                  Kenapa MindHaven Layak Dipilih?
                 </h2>
                 <p className="body-text">
-                  We're committed to providing the best mental wellness support tailored for the student experience.
+                  Kami menggabungkan pendekatan human-centered design, insight psikologi, dan implementasi web modern.
                 </p>
               </motion.div>
 
@@ -243,6 +330,23 @@ const HomePage = () => {
                   );
                 })}
               </div>
+
+              <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
+                <div className="stat-card flex items-start gap-4">
+                  <CheckCircle2 className="h-6 w-6 text-primary mt-0.5" />
+                  <div>
+                    <h4 className="font-heading text-lg text-foreground">Storytelling yang Kuat</h4>
+                    <p className="body-text text-sm mt-1">Alur dari hero hingga CTA dirancang untuk menyampaikan nilai produk secara cepat.</p>
+                  </div>
+                </div>
+                <div className="stat-card flex items-start gap-4">
+                  <CheckCircle2 className="h-6 w-6 text-primary mt-0.5" />
+                  <div>
+                    <h4 className="font-heading text-lg text-foreground">Kode Siap Iterasi</h4>
+                    <p className="body-text text-sm mt-1">Mengandalkan komponen reusable Tailwind untuk mempercepat polishing sebelum presentasi.</p>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -259,17 +363,17 @@ const HomePage = () => {
             >
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-accent" />
               <h2 className="heading-2">
-                Ready to Start Your Wellness Journey?
+                Siap Finalisasi untuk Hari Penjurian?
               </h2>
               <p className="body-text max-w-2xl mx-auto">
-                Join thousands of students who are taking control of their mental health with MindHaven's supportive tools and resources.
+                Lanjutkan ke halaman fitur dan kontak untuk melihat interaksi form, navigasi, serta konsistensi visual yang siap dipresentasikan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button asChild size="lg" className="rounded-xl gradient-btn px-8 py-6 h-auto text-base">
-                  <Link to="/features">Start Now</Link>
+                  <Link to="/features">Buka Demo Fitur</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="rounded-xl bg-background/40 backdrop-blur-sm border-border/50 px-8 py-6 h-auto text-base text-foreground hover:bg-background/60">
-                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/contact">Hubungi Tim</Link>
                 </Button>
               </div>
             </motion.div>

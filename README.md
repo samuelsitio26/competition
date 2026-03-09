@@ -14,4 +14,4 @@ Deskripsi karya menjelaskan latar belakang, tujuan, manfaat, serta pemilihan sub
 melandasi pembuatan Website ini.
 
 ## Link Website
-https://link-Website -hasil-deploy
+https://competition-web-alpha.vercel.app/ -hasil-deploy

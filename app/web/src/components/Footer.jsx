@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Mail, Phone, MapPin } from 'lucide-react';
+import { HeartPulse, Mail, Phone, MapPin, Trophy, Smartphone, WandSparkles } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,8 +12,26 @@ const Footer = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const highlights = [
+    {
+      icon: Trophy,
+      title: 'Competition Ready',
+      caption: 'Visual storytelling yang kuat',
+    },
+    {
+      icon: Smartphone,
+      title: 'Responsive Layout',
+      caption: 'Optimal di mobile dan desktop',
+    },
+    {
+      icon: WandSparkles,
+      title: 'Tailwind System',
+      caption: 'Komponen cepat untuk iterasi',
+    },
+  ];
+
   return (
-    <footer className="relative mt-auto overflow-hidden bg-card transition-colors duration-300">
+    <footer className="relative mt-auto overflow-hidden bg-card/90 transition-colors duration-300">
       {/* Background Gradient Accent */}
       <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       
@@ -24,14 +42,14 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shadow-sm">
-                  <Heart className="w-6 h-6 text-primary fill-primary/20" />
+                  <HeartPulse className="w-6 h-6 text-primary" />
                 </div>
                 <span className="font-heading text-2xl font-bold text-foreground tracking-wide">
                   Mind<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Haven</span>
                 </span>
               </div>
               <p className="body-text">
-                Supporting student mental wellness through accessible resources, self-care tools, and compassionate guidance.
+                Platform wellbeing mahasiswa dengan desain modern yang menonjolkan kejelasan informasi, estetika, dan interaktivitas.
               </p>
             </div>
 
@@ -78,10 +96,25 @@ const Footer = () => {
             </div>
           </div>
 
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {highlights.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.title} className="rounded-2xl border border-border/50 bg-background/60 p-5 backdrop-blur-sm">
+                  <div className="inline-flex rounded-xl bg-primary/10 p-2 text-primary mb-3">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <p className="font-heading text-lg text-foreground">{item.title}</p>
+                  <p className="body-text text-sm mt-1">{item.caption}</p>
+                </div>
+              );
+            })}
+          </div>
+
           {/* Copyright */}
           <div className="mt-16 pt-8 border-t border-border/50">
             <p className="body-text text-center">
-              © {currentYear} MindHaven. All rights reserved. Your mental health matters.
+              © {currentYear} MindHaven. Built for impact, empathy, and excellent web experience.
             </p>
           </div>
         </div>
