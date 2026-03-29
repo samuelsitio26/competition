@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, HeartPulse, Sun, Moon, Home, Info, Layers3, MessageCircle } from 'lucide-react';
+import { Menu, X, HeartPulse, Sun, Moon, Home, Stethoscope, Leaf, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/components/ThemeProvider.jsx';
 
@@ -12,8 +12,8 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/', icon: Home },
-    { name: 'About', path: '/about', icon: Info },
-    { name: 'Features', path: '/features', icon: Layers3 },
+    { name: 'Wellness', path: '/wellness', icon: Leaf },
+    { name: 'Health Condition', path: '/health-condition', icon: Stethoscope },
     { name: 'Contact', path: '/contact', icon: MessageCircle },
   ];
 

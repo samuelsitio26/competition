@@ -1,32 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HeartPulse, Mail, Phone, MapPin, Trophy, Smartphone, WandSparkles } from 'lucide-react';
+import { HeartPulse, Mail, Phone, MapPin, Brain, Smartphone, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Features', path: '/features' },
+    { name: 'Wellness', path: '/wellness' },
+    { name: 'Health Condition', path: '/health-condition' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const highlights = [
     {
-      icon: Trophy,
-      title: 'Competition Ready',
-      caption: 'Visual storytelling yang kuat',
+      icon: Brain,
+      title: 'Kesehatan Mental',
+      caption: 'Informasi terpercaya dari sumber medis',
+    },
+    {
+      icon: Heart,
+      title: 'Dukungan 24/7',
+      caption: 'Selalu ada untuk kamu kapan saja',
     },
     {
       icon: Smartphone,
-      title: 'Responsive Layout',
+      title: 'Akses Mudah',
       caption: 'Optimal di mobile dan desktop',
-    },
-    {
-      icon: WandSparkles,
-      title: 'Tailwind System',
-      caption: 'Komponen cepat untuk iterasi',
     },
   ];
 
@@ -114,7 +114,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mt-16 pt-8 border-t border-border/50">
             <p className="body-text text-center">
-              © {currentYear} MindHaven. Built for impact, empathy, and excellent web experience.
+              © {currentYear} MindHaven. Bersama menjaga kesehatan mental untuk kehidupan yang lebih baik.
             </p>
           </div>
         </div>

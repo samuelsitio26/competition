@@ -4,8 +4,8 @@ import ScrollToTop from '@/components/ScrollToTop.jsx';
 import Header from '@/components/Header.jsx';
 import Footer from '@/components/Footer.jsx';
 import HomePage from '@/pages/HomePage.jsx';
-import AboutPage from '@/pages/AboutPage.jsx';
-import FeaturesPage from '@/pages/FeaturesPage.jsx';
+import WellnessPage from '@/pages/WellnessPage.jsx';
+import HealthConditionPage from '@/pages/HealthConditionPage.jsx';
 import ContactPage from '@/pages/ContactPage.jsx';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/ThemeProvider.jsx';
@@ -19,8 +19,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/wellness" element={<WellnessPage />} />
+            <Route path="/health-condition" element={<HealthConditionPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
